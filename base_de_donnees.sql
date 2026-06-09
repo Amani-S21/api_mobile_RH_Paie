@@ -148,7 +148,7 @@ INSERT IGNORE INTO Employé (Id, Matricule, Nom, PostNom, Prénom, Sexe, DateNai
 (1, 'EMP001', 'JUIF', 'LE', 'NOIR', 'M', '2000-05-15', '243987542634', 'juif.diallo@rhpaie.com', 'Directeur Général', 15000, 'Actif', 1),
 (2, 'EMP002', 'AMANI', 'Peace', 'Fatou', 'M', '1990-10-20', '243987542635', 'peace.fall@rhpaie.com', 'Responsable RH', 8000, 'Actif', 2),
 (3, 'EMP003', 'NDIAYE', 'Ndiaye', 'Moussa', 'M', '1992-03-25', '243987542636', 'moussa.ndiaye@rhpaie.com', 'Développeur', 7000, 'Actif', 3),
-(4, 'EMP004', 'SOW', 'Sow', 'Aminata', 'F', '1988-07-12', '243987542637', 'aminata.sow@rhpaie.com', 'Comptable', 7500, 'Actif', 4);
+(4, 'EMP004', 'Merveille', 'Sow', 'Aminata', 'F', '1988-07-12', '243987542637', 'aminata.sow@rhpaie.com', 'Comptable', 7500, 'Actif', 4);
 
 -- Insertion de primes de démonstration
 INSERT IGNORE INTO Primes (IdEmployé, Libellé, Montant) VALUES 
