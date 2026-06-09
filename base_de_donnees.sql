@@ -187,3 +187,23 @@ INSERT IGNORE INTO Présence (IdEmployé, Date, HeureArrivée, HeureSortie, Stat
 (2, '2024-06-02', NULL, NULL, 'Absent'),
 (3, '2024-06-02', '08:30:00', '17:30:00', 'Présent'),
 (4, '2024-06-02', '08:30:00', '17:30:00', 'Présent');
+
+
+
+
+===============================
+
+-- Recréer la table Utilisateurs (sans hash, mot de passe en clair)
+CREATE TABLE IF NOT EXISTS Utilisateurs (
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    UserName VARCHAR(50) NOT NULL UNIQUE,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    Password VARCHAR(100) NOT NULL,  -- Mot de passe en clair
+    IdRôle INT,
+    FOREIGN KEY (IdRôle) REFERENCES Rôle(Id)
+);
+
+-- Insérer l'utilisateur admin avec mot de passe en clair
+DELETE FROM Utilisateurs WHERE Email = 'admin@rhpaie.com';
+INSERT INTO Utilisateurs (Id, UserName, Email, Password, IdRôle) VALUES 
+(1, 'admin', 'admin@rhpaie.com', 'admin123', 1);

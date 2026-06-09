@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Direct API</title>
+</head>
+<body>
+    <h2>Test API Login</h2>
+    <div id="result"></div>
+    
+    <script>
+        async function test() {
+            const response = await fetch('http://localhost/api_rh/login.php', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    email: 'admin@rhpaie.com',
+                    password: 'admin123'
+                })
+            });
+            const data = await response.json();
+            document.getElementById('result').innerHTML = 
+                '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+        }
+        test();
+    </script>
+</body>
+</html>
