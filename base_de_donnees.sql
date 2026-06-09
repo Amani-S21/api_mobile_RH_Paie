@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS Utilisateurs (
     Id INT PRIMARY KEY AUTO_INCREMENT,
     UserName VARCHAR(50) NOT NULL UNIQUE,
     Email VARCHAR(100) NOT NULL UNIQUE,
-    Password VARCHAR(255) NOT NULL,
+    Password VARCHAR(100) NOT NULL,  -- Mot de passe en clair
     IdRôle INT,
     FOREIGN KEY (IdRôle) REFERENCES Rôle(Id)
 );
@@ -140,8 +140,11 @@ INSERT IGNORE INTO Departement (Id, Nom, Description) VALUES
 (5, 'Marketing', 'Communication et publicité');
 
 -- Insertion d'un utilisateur admin (mot de passe: admin123)
-INSERT IGNORE INTO Utilisateurs (Id, UserName, Email, Password, IdRôle) VALUES 
-(1, 'admin', 'admin@rhpaie.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 1);
+-- INSERT IGNORE INTO Utilisateurs (Id, UserName, Email, Password, IdRôle) VALUES 
+-- (1, 'admin', 'admin@rhpaie.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 1);
+
+INSERT INTO Utilisateurs (Id, UserName, Email, Password, IdRôle) VALUES 
+(1, 'admin', 'admin@rhpaie.com', 'admin123', 1);
 
 -- Insertion d'employés de démonstration
 INSERT IGNORE INTO Employé (Id, Matricule, Nom, PostNom, Prénom, Sexe, DateNaissance, Téléphone, Email, Poste, SalaireBase, Statut, IdDepartement) VALUES 
@@ -191,19 +194,17 @@ INSERT IGNORE INTO Présence (IdEmployé, Date, HeureArrivée, HeureSortie, Stat
 
 
 
-===============================
+-- -- Recréer la table Utilisateurs (sans hash, mot de passe en clair)
+-- CREATE TABLE IF NOT EXISTS Utilisateurs (
+--     Id INT PRIMARY KEY AUTO_INCREMENT,
+--     UserName VARCHAR(50) NOT NULL UNIQUE,
+--     Email VARCHAR(100) NOT NULL UNIQUE,
+--     Password VARCHAR(100) NOT NULL,  -- Mot de passe en clair
+--     IdRôle INT,
+--     FOREIGN KEY (IdRôle) REFERENCES Rôle(Id)
+-- );
 
--- Recréer la table Utilisateurs (sans hash, mot de passe en clair)
-CREATE TABLE IF NOT EXISTS Utilisateurs (
-    Id INT PRIMARY KEY AUTO_INCREMENT,
-    UserName VARCHAR(50) NOT NULL UNIQUE,
-    Email VARCHAR(100) NOT NULL UNIQUE,
-    Password VARCHAR(100) NOT NULL,  -- Mot de passe en clair
-    IdRôle INT,
-    FOREIGN KEY (IdRôle) REFERENCES Rôle(Id)
-);
-
--- Insérer l'utilisateur admin avec mot de passe en clair
-DELETE FROM Utilisateurs WHERE Email = 'admin@rhpaie.com';
-INSERT INTO Utilisateurs (Id, UserName, Email, Password, IdRôle) VALUES 
-(1, 'admin', 'admin@rhpaie.com', 'admin123', 1);
+-- -- Insérer l'utilisateur admin avec mot de passe en clair
+-- DELETE FROM Utilisateurs WHERE Email = 'admin@rhpaie.com';
+-- INSERT INTO Utilisateurs (Id, UserName, Email, Password, IdRôle) VALUES 
+-- (1, 'admin', 'admin@rhpaie.com', 'admin123', 1);
