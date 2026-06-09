@@ -148,11 +148,7 @@ INSERT IGNORE INTO Employé (Id, Matricule, Nom, PostNom, Prénom, Sexe, DateNai
 (1, 'EMP001', 'JUIF', 'LE', 'NOIR', 'M', '2000-05-15', '243987542634', 'juif.diallo@rhpaie.com', 'Directeur Général', 15000, 'Actif', 1),
 (2, 'EMP002', 'AMANI', 'Peace', 'Fatou', 'M', '1990-10-20', '243987542635', 'peace.fall@rhpaie.com', 'Responsable RH', 8000, 'Actif', 2),
 (3, 'EMP003', 'NDIAYE', 'Ndiaye', 'Moussa', 'M', '1992-03-25', '243987542636', 'moussa.ndiaye@rhpaie.com', 'Développeur', 7000, 'Actif', 3),
-(4, 'EMP004', 'SOW', 'Sow', 'Aminata', 'F', '1988-07-12', '243987542637', 'aminata.sow@rhpaie.com', 'Comptable', 7500, 'Actif', 4),
-(5, 'EMP005', 'BA', 'Ba', 'Oumar', 'M', '1995-12-01', '243987542638', 'oumar.ba@rhpaie.com', 'Marketing', 6500, 'Actif', 5),
-(6, 'EMP006', 'KANE', 'Kane', 'Mariama', 'F', '1993-09-18', '243987542639', 'mariama.kane@rhpaie.com', 'Assistante RH', 5500, 'Actif', 2),
-(7, 'EMP007', 'TOURE', 'Touré', 'Ibrahima', 'M', '1987-04-22', '243987542640', 'ibrahima.toure@rhpaie.com', 'Développeur Senior', 9000, 'Actif', 3),
-(8, 'EMP008', 'DIOP', 'Diop', 'Aissatou', 'F', '1991-11-30', '243987542641', 'aissatou.diop@rhpaie.com', 'Comptable', 7200, 'Actif', 4);
+(4, 'EMP004', 'SOW', 'Sow', 'Aminata', 'F', '1988-07-12', '243987542637', 'aminata.sow@rhpaie.com', 'Comptable', 7500, 'Actif', 4);
 
 -- Insertion de primes de démonstration
 INSERT IGNORE INTO Primes (IdEmployé, Libellé, Montant) VALUES 
