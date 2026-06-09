@@ -62,7 +62,7 @@ if(!empty($data->email) && !empty($data->password)) {
                 "role" => "Administrateur"
             ),
             "token" => base64_encode($db->lastInsertId() . "_" . time())
-        ));
+        )); 
     }
 } else {
     http_response_code(400);
