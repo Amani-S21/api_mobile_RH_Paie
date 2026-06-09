@@ -116,7 +116,10 @@ CREATE TABLE IF NOT EXISTS Présence (
 );
 
 -- Insertion des données initiales
-INSERT IGNORE INTO Rôle (Id, Nom) VALUES (1, 'Administrateur'), (2, 'RH'), (3, 'Employé');
+INSERT IGNORE INTO Rôle (Id, Nom) VALUES 
+(1, 'Administrateur'), 
+(2, 'RH'), 
+(3, 'Employé');
 
 INSERT IGNORE INTO TypeCongé (Id, Designation) VALUES 
 (1, 'Congé annuel'),
@@ -142,4 +145,49 @@ INSERT IGNORE INTO Utilisateurs (Id, UserName, Email, Password, IdRôle) VALUES
 
 -- Insertion d'employés de démonstration
 INSERT IGNORE INTO Employé (Id, Matricule, Nom, PostNom, Prénom, Sexe, DateNaissance, Téléphone, Email, Poste, SalaireBase, Statut, IdDepartement) VALUES 
-(1, 'EMP001', 'JUIF', 'LE', 'Noir', 'M', '2014-05-15', '+243987542634', 'juif.diallo@rhpaie.com', 'Directeur Général', 15000, 'Actif', 1),
+(1, 'EMP001', 'DIALLO', 'Diallo', 'Amadou', 'M', '1985-05-15', '243987542634', 'amadou.diallo@rhpaie.com', 'Directeur Général', 15000, 'Actif', 1),
+(2, 'EMP002', 'FALL', 'Fall', 'Fatou', 'F', '1990-10-20', '243987542635', 'fatou.fall@rhpaie.com', 'Responsable RH', 8000, 'Actif', 2),
+(3, 'EMP003', 'NDIAYE', 'Ndiaye', 'Moussa', 'M', '1992-03-25', '243987542636', 'moussa.ndiaye@rhpaie.com', 'Développeur', 7000, 'Actif', 3),
+(4, 'EMP004', 'SOW', 'Sow', 'Aminata', 'F', '1988-07-12', '243987542637', 'aminata.sow@rhpaie.com', 'Comptable', 7500, 'Actif', 4),
+(5, 'EMP005', 'BA', 'Ba', 'Oumar', 'M', '1995-12-01', '243987542638', 'oumar.ba@rhpaie.com', 'Marketing', 6500, 'Actif', 5),
+(6, 'EMP006', 'KANE', 'Kane', 'Mariama', 'F', '1993-09-18', '243987542639', 'mariama.kane@rhpaie.com', 'Assistante RH', 5500, 'Actif', 2),
+(7, 'EMP007', 'TOURE', 'Touré', 'Ibrahima', 'M', '1987-04-22', '243987542640', 'ibrahima.toure@rhpaie.com', 'Développeur Senior', 9000, 'Actif', 3),
+(8, 'EMP008', 'DIOP', 'Diop', 'Aissatou', 'F', '1991-11-30', '243987542641', 'aissatou.diop@rhpaie.com', 'Comptable', 7200, 'Actif', 4);
+
+-- Insertion de primes de démonstration
+INSERT IGNORE INTO Primes (IdEmployé, Libellé, Montant) VALUES 
+(1, 'Prime de performance', 1500),
+(1, 'Prime de transport', 500),
+(2, 'Prime de responsabilité', 800),
+(3, 'Prime technique', 600),
+(4, 'Prime d\'ancienneté', 400);
+
+-- Insertion de congés de démonstration
+INSERT IGNORE INTO Congé (IdTypeCongé, IdEmployé, Motif, DateDébut, DateFin, Statut) VALUES 
+(1, 2, 'Vacances annuelles', '2024-07-01', '2024-07-15', 'Approuvé'),
+(1, 3, 'Repos', '2024-08-10', '2024-08-25', 'En attente'),
+(2, 4, 'Consultation médicale', '2024-06-20', '2024-06-22', 'Approuvé'),
+(1, 5, 'Voyage familial', '2024-09-01', '2024-09-14', 'En attente'),
+(3, 6, 'Affaires personnelles', '2024-07-25', '2024-07-30', 'Refusé');
+
+-- Insertion de paiements de démonstration
+INSERT IGNORE INTO Paiement (IdEmployé, Mois, MontantNet, ModePaiement, DatePaiement, StatutPaiement) VALUES 
+(1, '2024-01', 16000, 'Virement bancaire', '2024-01-28', 'Payé'),
+(2, '2024-01', 8500, 'Virement bancaire', '2024-01-28', 'Payé'),
+(3, '2024-01', 7200, 'Espèces', '2024-01-28', 'Payé'),
+(4, '2024-01', 7500, 'Virement bancaire', '2024-01-28', 'Payé'),
+(1, '2024-02', 16000, 'Virement bancaire', '2024-02-28', 'Payé'),
+(2, '2024-02', 8500, 'Virement bancaire', '2024-02-28', 'Payé'),
+(3, '2024-02', 7200, 'Espèces', '2024-02-28', 'Payé'),
+(4, '2024-02', 7500, 'Virement bancaire', '2024-02-28', 'Payé');
+
+-- Insertion de présences de démonstration (mois de juin 2024)
+INSERT IGNORE INTO Présence (IdEmployé, Date, HeureArrivée, HeureSortie, Statut) VALUES 
+(1, '2024-06-01', '08:30:00', '17:30:00', 'Présent'),
+(2, '2024-06-01', '08:45:00', '17:30:00', 'Présent'),
+(3, '2024-06-01', '09:00:00', '17:30:00', 'Retard'),
+(4, '2024-06-01', '08:30:00', '17:30:00', 'Présent'),
+(1, '2024-06-02', '08:30:00', '17:30:00', 'Présent'),
+(2, '2024-06-02', NULL, NULL, 'Absent'),
+(3, '2024-06-02', '08:30:00', '17:30:00', 'Présent'),
+(4, '2024-06-02', '08:30:00', '17:30:00', 'Présent');
